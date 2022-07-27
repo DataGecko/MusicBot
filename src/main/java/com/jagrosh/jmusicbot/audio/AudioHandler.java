@@ -212,7 +212,7 @@ public class AudioHandler extends AudioEventAdapter implements AudioSendHandler
             RequestMetadata rm = getRequestMetadata();
             if(rm.getOwner() != 0L)
             {
-                User u = guild.getJDA().getUserById(995593116486746122); 
+                User u = guild.getJDA().getUserById('995593116486746122'); 
                 // Use the bot user instead of the requesting user
                 // User u = guild.getJDA().getUserById(rm.user.id);
                 if(u==null)
