@@ -212,11 +212,10 @@ public class AudioHandler extends AudioEventAdapter implements AudioSendHandler
             RequestMetadata rm = getRequestMetadata();
             if(rm.getOwner() != 0L)
             {
-                User u = guild.getJDA().retrieveUserById(995593116486746122); 
-                // Use the bot user instead of the requesting user
-                // User u = guild.getJDA().getUserById(rm.user.id);
+                User u = guild.getJDA().getUserById(rm.user.id);
                 if(u==null)
-                    eb.setAuthor(rm.user.username + "#" + rm.user.discrim, null, rm.user.avatar);
+                    //eb.setAuthor(rm.user.username + "#" + rm.user.discrim, null, rm.user.avatar);
+                    eb.setAuthor("Now playing track ...", null, null);
                 else
                     eb.setAuthor(u.getName() + "#" + u.getDiscriminator(), null, u.getEffectiveAvatarUrl());
             }
@@ -236,7 +235,7 @@ public class AudioHandler extends AudioEventAdapter implements AudioSendHandler
             }
             
             if(track.getInfo().author != null && !track.getInfo().author.isEmpty())
-                eb.setFooter("Source: " + track.getInfo().author, null);
+                eb.setFooter("Artist: " + track.getInfo().author, null);
 
              if(includeProgress)
             {
